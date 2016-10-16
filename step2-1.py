@@ -1,4 +1,8 @@
-
+# Added Missile actor
+# Handle space key
+# Draw Missle
+# Move Missile
+# When off the top, stop drawing (so can be shot again)
 
 WIDTH = 500
 HEIGHT = 500
