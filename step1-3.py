@@ -8,21 +8,10 @@ HEIGHT = 500
 ship = Actor('ship')
 ship.midbottom = 250,490
 
-keysPressed = {
-	keys.LEFT : False,
-	keys.RIGHT : False,
-}
-
-def on_key_down(key):
-	keysPressed[key] = True
-
-def on_key_up(key):
-	keysPressed[key] = False
-
 def update():
-	if keysPressed[keys.LEFT]:
+	if keyboard[keys.LEFT]:
 		ship.left -= 2
-	if keysPressed[keys.RIGHT]:
+	if keyboard[keys.RIGHT]:
 		ship.right += 2
 	
 def draw():

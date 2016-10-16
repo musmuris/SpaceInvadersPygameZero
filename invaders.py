@@ -1,5 +1,3 @@
-
-
 WIDTH = 500
 HEIGHT = 500
 
@@ -9,24 +7,13 @@ ship.midbottom = 250,490
 missile = Actor('missile')
 missile.fired = False
 
-keysPressed = {
-	keys.LEFT : False,
-	keys.RIGHT : False,
-	keys.SPACE : False
-}
-
-def on_key_down(key):
-	keysPressed[key] = True
-
-def on_key_up(key):
-	keysPressed[key] = False
 
 def update():
-	if keysPressed[keys.LEFT] and ship.left > 0:
+	if keyboard[keys.LEFT] and ship.left > 0:
 		ship.left -= 2
-	if keysPressed[keys.RIGHT] and ship.right < WIDTH:
+	if keyboard[keys.RIGHT] and ship.right < WIDTH:
 		ship.right += 2
-	if keysPressed[keys.SPACE] and not missile.fired:
+	if keyboard[keys.SPACE] and not missile.fired:
 		missile.fired = True
 		missile.pos = ship.midtop
 
