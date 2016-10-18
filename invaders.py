@@ -7,6 +7,8 @@ ship.midbottom = 250,490
 missile = Actor('missile')
 missile.fired = False
 
+alien_a = Actor('alien_a_1')
+alien_a.pos = 250, 200
 
 def update():
 	if keyboard[keys.LEFT] and ship.left > 0:
@@ -26,6 +28,8 @@ def update():
 def draw():
 	screen.clear()
 	ship.draw()
+	alien_a.draw()
 	if missile.fired:
 		missile.draw()
+
 
