@@ -13,9 +13,9 @@ alien_a.image1 = 'alien_a_1'
 alien_a.image2 = 'alien_a_2'
 alien_a.frame = 1
 alien_a.direction = 10
-alien_a.dead = False
+alien_a.dead = 0
 
-speed = 5
+speed = 60
 
 def updatePlayer():
 	if keyboard[keys.LEFT] and ship.left > 0:
@@ -42,11 +42,6 @@ def updateAlien(alien):
 	else:
 		updateFrame = False
 
-	if alien.image == 'alien_dead':
-		if updateFrame:
-			alien.dead = True
-		return
-
 	if updateFrame:
 		alien.left += alien.direction
 		if alien.left > 420:
@@ -54,7 +49,9 @@ def updateAlien(alien):
 		elif alien.left < 20:
 			alien.direction = 10
 
-		if alien.image == alien.image1:
+		if alien.image == 'alien_dead':
+			alien.dead += 1
+		elif alien.image == alien.image1:
 			alien.image = alien.image2
 		else:
 			alien.image = alien.image1
@@ -72,7 +69,7 @@ def update():
 def draw():
 	screen.clear()
 	ship.draw()
-	if not alien_a.dead:
+	if alien_a.dead < 2:
 		alien_a.draw()
 	if missile.fired:
 		missile.draw()
